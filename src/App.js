@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+    Container,
+    Flex,
+    Heading
+} from "@chakra-ui/react";
+import TableCoins from "./components/TableCoins";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+const App = () => {
+    return (
+        <Container
+            maxW="container.xl"    
         >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+            <Flex
+                justifyContent="center"
+                padding={6}
+                w="full"
+            >
+                <Heading>CoinGecko API</Heading>
+            </Flex>
+            <TableCoins/>
+        </Container>
+    )
 }
 
-export default App;
+export default App
