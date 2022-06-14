@@ -6,6 +6,7 @@ import {
     Td,
     Text,
     HStack,
+    IconButton,
     useDisclosure,
     Modal,
     ModalOverlay,
@@ -15,6 +16,7 @@ import {
     VStack,
     ModalFooter,
 } from "@chakra-ui/react";
+import { AddIcon } from "@chakra-ui/icons";
 
 const RowCoin = ({ 
     ath, 
@@ -55,7 +57,14 @@ const RowCoin = ({
                 color={market_cap_change_percentage_24h > 0 ? "green.400" : "red.400"}
             >{market_cap_change_percentage_24h}</Td>
             <Td>
-                <Button size="sm" onClick={onOpen}>More</Button>
+               <IconButton
+                    ml={4}
+                    bgColor="white"
+                    onClick={onOpen}
+                    variant="outline"
+                    size="xs"
+                    icon={<AddIcon/>}
+               />
 
                 {/* Modal */}
 
@@ -113,7 +122,8 @@ const RowCoin = ({
                     </ModalBody>
                     <ModalFooter>
                         <HStack w="full" justifyContent="center">
-                            <Button alignItems="center" onClick={onClose}>Close</Button>
+                            <Button 
+                                onClick={onClose}>Close</Button>
                         </HStack>
                     </ModalFooter>
                 </ModalContent>

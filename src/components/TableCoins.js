@@ -59,7 +59,7 @@ const TableCoins = () => {
                 type="text"
             />
             <TableContainer p={6}>
-                <Table>
+                <Table variant="striped" colorScheme="gray">
                     <Thead>
                         <Tr>
                             <Th>#</Th>
