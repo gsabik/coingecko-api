@@ -1,12 +1,14 @@
 import {
     Container, 
+    Flex,
     Input,
     Table,
     Thead, 
     Tbody,
     Tr,
     Th,
-    TableContainer
+    TableContainer,
+    Heading
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import Loader from "./Loader";
@@ -18,8 +20,8 @@ const TableCoins = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        
-        fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=false")
+
+        fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false")
             .then(res => res.json())
             .then(data => {
                 setCoins(data)
@@ -41,7 +43,14 @@ const TableCoins = () => {
     }
 
     return (
-        <Container maxW="full">
+        <Container maxW="container.xl" pt={6}>
+            <Flex 
+                justifyContent="center"
+                pb={6}
+                w="full"
+            >
+                <Heading>CoinGecko API</Heading>
+            </Flex>
             <Input
                 mx={8}
                 onChange={handleInputChange}
@@ -58,8 +67,8 @@ const TableCoins = () => {
                             <Th>Price</Th>
                             <Th>ATH</Th>
                             <Th>Price Change 24hs</Th>
-                            <Th>Market Capitalization</Th>
                             <Th>Cap. Change 24hs</Th>
+                            <Th>Details</Th>
                         </Tr>
                     </Thead>
                     <Tbody>
